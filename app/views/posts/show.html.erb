@@ -1,0 +1,9 @@
+<h4>Post</h4>
+<h5><%= @post.title %></h5>	
+<p>	<%= @post.description %><br/>
+	<%= @post.url %><br/>
+	<span class: 'small'><%= @post.updated_at%></span></p>
+	<%= link_to "Edit", edit_post_path(@post), class: "btn btn-success"%>
+	<%= link_to "Back to Index", posts_path, class: "btn btn-link" %>
+	
+	

@@ -1,3 +1,15 @@
-<h3>Welcome!</h3>
+<h3>Welcome to the Postit App</h3>
 
-<p>This is the Postit template. You've access the PostsController, index action. This is the index template. Find me under app/views/posts folder.</p>
+<h4>List of all posts<span>
+
+<%= link_to "Create a new post", new_post_path,  class: 'btn btn-success pull-right' %></span>
+</h4>
+<% @posts.each do |post| %>
+<p></strong> <%=link_to "<strong>#{post.title}</strong>".html_safe, post_path(post) %></strong><br/> <%= post.description %><br><%= post.url %><br>
+<%= link_to "Edit Post", edit_post_path(post)%>
+
+</p>
+<hr/>
+<% end %>
+</ul>
+
