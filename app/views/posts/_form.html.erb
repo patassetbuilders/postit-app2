@@ -23,7 +23,7 @@
 <br/>
 
 
-<%= f.submit "Submit", class: 'btn btn-success'%>
+<%= f.submit (@post.new_record? ? "Create New Post" : "Update Post"), class: 'btn btn-success'%>
 
 <% end %>
  
