@@ -1,5 +1,5 @@
 <% if obj.errors.any? %>
-	<div class="alert alert-danger" role="alert"><p><strong> Postit App is unable to save your post - please correct the following input errors and re-submit </strong></p>
+	<div class="alert alert-danger" role="alert"><p><strong> Input error:  </strong></p>
 		<ul>
 			<% obj.errors.full_messages.each do |msg| %>
 				<li><%= msg %></li>

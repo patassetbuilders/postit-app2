@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     
   def show
       @post = Post.find(params[:id])
+      @comment = Comment.new
   end
   
   def new
@@ -14,8 +15,8 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_strong_params)
+    @post.user = User.first
     if @post.save
-      pry.binding
       flash[:notice] = "Post successfully created"
       redirect_to posts_url
     else

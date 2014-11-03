@@ -1,4 +1,4 @@
 class PostCategory < ActiveRecord::Base
-  belongs_to :posts
-  belongs_to :categories
+  belongs_to :post
+  belongs_to :category
 end
