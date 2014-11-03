@@ -1,0 +1,14 @@
+<%# partial for category %>
+
+<%= render "shared/errors", obj: @category %>
+<%= form_for @category do |f| %>
+
+	
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	
+
+	<%= f.submit (@category.new_record? ? "Create New Category" : "Update Category"), class: 'btn btn-success'%>
+	<%#= f.submit "Cancel", :back , class: 'btn btn-link'%>
+
+	<% end %>

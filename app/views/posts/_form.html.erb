@@ -1,15 +1,8 @@
 <%# partial entered into new, edit forms%>
+<%= render 'shared/errors', obj: @post %>
+
 <%= form_for @post do |f| %>
 
-<% if @post.errors.any? %>
-	<div class="alert alert-danger" role="alert"><p><strong> Postit App is unable to save your post - please correct the following input errors and re-submit </strong></p>
-		<ul>
-			<% @post.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>	
-		</ul>
-	</div>
-	<% end %>
 
 <%= f.label :title %>
 <%= f.text_field :title %>

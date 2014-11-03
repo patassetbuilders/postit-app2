@@ -1,0 +1,14 @@
+
+
+<h4>List of all Categories<span>
+
+<%= link_to "Create a new category", new_category_path,  class: 'btn btn-success pull-right' %></span>
+</h4>
+<br/>
+<% @categories.each do |category| %>
+<div class= "well well-lg"></strong> <%=link_to "<strong>#{category.name}</strong>".html_safe, category_path(category) %>
+<%= link_to "Edit", edit_category_path(category), :class => 'pull-right' %>
+
+</div>
+<% end %>
+</ul>
