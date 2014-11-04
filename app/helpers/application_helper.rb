@@ -13,7 +13,7 @@ module ApplicationHelper
   end
   
   def ozdate(date)
-    date.strftime("%A, %e %b %H:%M")
+    date.strftime("%A, %e %b %Y, %H:%M")
   end
   
 end

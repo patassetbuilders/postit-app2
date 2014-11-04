@@ -3,7 +3,7 @@
 <h5><%= @post.title %></h5>	
 <p>	<%= @post.description %><br/>
 	<%= @post.url %><br/>
-	<span class="small"><%= @post.updated_at%></span></p>
+	<span class="quiet"><%= ozdate(@post.updated_at)%></span></p>
 </div>
 	<%= form_for [@post,@comment] do |f| %>
 	<%= render 'shared/errors', obj: @comment %>
@@ -19,6 +19,7 @@
 <div class="well well-small">
 	<em>"<%= comment.body %>"</em><br>
 	<%= link_to comment.user.username , '' %>
+	<span class="quiet"> <%=ozdate(comment.created_at)%>
 </div>
 
 <% end %>
