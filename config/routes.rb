@@ -5,4 +5,9 @@ PostitTemplate::Application.routes.draw do
   end
   
   resources :categories, except: [:destroy]
+  get 'login', to: 'sessions#new'
+   post 'login', to: 'sessions#create'
+   get '/logout', to: 'sessions#logout'
+ # resources :sessions, only: [:new, :create, :destroy]
+  
 end

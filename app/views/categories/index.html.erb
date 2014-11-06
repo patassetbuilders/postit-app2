@@ -1,14 +1,16 @@
 
 
 <h4>List of all Categories<span>
-
+<% if logged_in? %>
 <%= link_to "Create a new category", new_category_path,  class: 'btn btn-success pull-right' %></span>
+<% end %>
 </h4>
 <br/>
 <% @categories.each do |category| %>
 <div class= "well well-lg"></strong> <%=link_to "<strong>#{category.name}</strong>".html_safe, category_path(category) %>
+<% if logged_in? %>
 <%= link_to "Edit", edit_category_path(category), :class => 'pull-right' %>
-
+<% end %>
 </div>
 <% end %>
 </ul>

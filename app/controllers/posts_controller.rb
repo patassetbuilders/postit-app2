@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_user, except: [:show, :index]
+  
   
   def index
     @posts = Post.all
@@ -15,7 +17,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_strong_params)
-    @post.user = User.first
+    @post.user = current_user
     if @post.save
       flash[:notice] = "Post successfully created"
       redirect_to posts_url

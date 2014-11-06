@@ -1,7 +1,9 @@
 <h4>Category</h4>
 <h5><%= @category.name %></h5>	
 	<span class: 'small'><%= @category.updated_at%></span></p>
-	<%= link_to "Edit", edit_category_path(@category), class: "btn btn-success"%>
+	<% if logged_in?%>
+		<%= link_to "Edit", edit_category_path(@category), class: "btn btn-success"%>
+	<% end %>
 	<%= link_to "Back to Index", categories_path, class: "btn btn-link" %>
 <hr />
 	<% @category.posts.each do |post| %>
