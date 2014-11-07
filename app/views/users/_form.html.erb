@@ -15,6 +15,6 @@
 
 <div class="control-group">
 	<%= f.submit (@user.new_record? ? "Create New User" : "Update User"), class: 'btn btn-success'%>
-	<%#= f.submit "Cancel", :back , class: 'btn btn-link'%>
+	<%= link_to "Back", root_path , class: 'btn btn-link'%>
 </div>
 	<% end %>

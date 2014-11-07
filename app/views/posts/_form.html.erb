@@ -21,6 +21,7 @@
 <% end %>
 </div>
 <%= f.submit (@post.new_record? ? "Create New Post" : "Update Post"), class: 'btn btn-success'%>
+<%= link_to 'Back', request.referer, class: 'btn btn-link '%>
 
 <% end %>
  

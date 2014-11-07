@@ -1,14 +1,15 @@
 <%# partial for category %>
-
+<div class="well">
 <%= render "shared/errors", obj: @category %>
 <%= form_for @category do |f| %>
 
-	
+	<div class="control-group">
 	<%= f.label :name %>
 	<%= f.text_field :name %>
-	
-
+</div>
+<div class="control-group">
 	<%= f.submit (@category.new_record? ? "Create New Category" : "Update Category"), class: 'btn btn-success'%>
-	<%#= f.submit "Cancel", :back , class: 'btn btn-link'%>
-
+  <%= link_to 'Back', request.referer, class: 'btn btn-link '%>
+</div>
 	<% end %>
+</div>
