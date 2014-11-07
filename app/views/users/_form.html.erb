@@ -1,0 +1,20 @@
+<%# partial for users %>
+<%= render "shared/errors", obj: @user %>
+<%= form_for @user do |f| %>
+
+<div class="control-group">
+	
+	<%= f.label :username %>
+	<%= f.text_field :username %>
+</div>
+	
+	<div class="control-group">
+	<%= f.label :password, 'Password'%>
+	<%= f.password_field :password %>
+</div>
+
+<div class="control-group">
+	<%= f.submit (@user.new_record? ? "Create New User" : "Update User"), class: 'btn btn-success'%>
+	<%#= f.submit "Cancel", :back , class: 'btn btn-link'%>
+</div>
+	<% end %>

@@ -38,8 +38,8 @@
 <% end %>
 
 <% if logged_in? %>
-<span class="nav-item">
-<%= "Hi #{user.username}" %> 	<%= link_to 'Log Out', logout_path, class: "btn btn-small "%>
+<span class="nav-item pull-right">
+<%= " Hi #{current_user.username}" %> 	<%= link_to 'Log Out', logout_path, class: "btn btn-small "%>
 	<% else %>
 	<%= link_to 'Log in', login_path, class: "btn btn-small btn-success" %>
 	<% end %>
