@@ -1,7 +1,9 @@
 PostitTemplate::Application.routes.draw do
   root to: 'posts#index'
-  resources :users, except: [:destroy]
-
+ 
+  
+  resources :users, except: [:destroy, :index, :new]
+  get 'register', to: 'users#new'
   resources :posts, except: [:destroy] do
     resources :comments, only: [:create]
   end

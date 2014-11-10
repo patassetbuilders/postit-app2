@@ -37,10 +37,22 @@
 </span>
 <% end %>
 
+<span class="pull-right">
 <% if logged_in? %>
-<span class="nav-item pull-right">
-<%= " Hi #{current_user.username}" %> 	<%= link_to 'Log Out', logout_path, class: "btn btn-small "%>
-	<% else %>
+	<div class="btn-group">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" href="#">
+			<%= current_user.username.titleize %> 
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li>	<%= link_to 'Log Out', logout_path %> </li>
+			<li>  <%= link_to 'Edit Profile', edit_user_path(current_user)%> </li>
+			<li>  <%= link_to  'Show Profile', user_path(current_user)%>
+		</ul>
+	</div>
+<% else %>
 	<%= link_to 'Log in', login_path, class: "btn btn-small btn-success" %>
-	<% end %>
+	<%= link_to 'Register', register_path, class: "btn btn-small btn-success" %>
+<% end %>
+</span>
 	
