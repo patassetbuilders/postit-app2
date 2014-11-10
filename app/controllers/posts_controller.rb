@@ -42,6 +42,13 @@ class PostsController < ApplicationController
   def destroy
   end
   
+  def vote
+    @post = Post.find(params[:id])
+    Vote.create(voteable: @post, user: current_user, vote: params[:vote])
+    flash[:notice] = 'Your vote was created'
+    redirect_to :back
+  end
+  
   private
   def post_strong_params
     params.require(:post).permit(:title, :url, :description, category_ids:[])

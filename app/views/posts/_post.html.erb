@@ -1,8 +1,24 @@
-<div class= "well well-lg"></strong> <%=link_to "<strong>#{post.title}</strong>".html_safe, post_path(post) %></strong><br/> <%= post.description %><br><%=link_to(post.url, "#{fix_url(post.url)}") %> <span class="quiet"> <%= ozdate(post.created_at) %></span>
-	<% if logged_in? %>
-		<br>
-		<% if post[:user_id] == current_user[:id] %>
-		<%= link_to "Edit Post", edit_post_path(post)%>
+<div class="row">
+	<div class="span0 well text-center">
+		<%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+		<i class='icon-arrow-up'></i>
 		<% end %>
-	<% end %>
+		<%= post.up_votes %>
+		<br/>
+		Votes <%= post.total_votes %>
+		<br/>
+		<%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+		<i class='icon-arrow-down'></i>
+		<% end %>
+		<%= post.down_votes %>
+	</div>  
+
+	<div class= "span8 well well-lg"></strong> <%=link_to "<strong>#{post.title}</strong>".html_safe, post_path(post) %></strong><br/> <%= post.description %><br><%=link_to(post.url, "#{fix_url(post.url)}") %> <span class="quiet"> <%= ozdate(post.created_at) %></span>
+		<% if logged_in? %>
+			<br>
+			<% if post[:user_id] == current_user[:id] %>
+				<%= link_to "Edit Post", edit_post_path(post)%>
+			<% end %>
+		<% end %>
+	</div>
 </div>
