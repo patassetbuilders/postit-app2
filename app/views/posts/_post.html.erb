@@ -23,16 +23,24 @@
 	<%= link_to category[:name], category_path(category) %>
   </span>
 	<% end %>
-	<%=link_to "<h5>#{post.title}</h5>".html_safe, post_path(post) %>
-	<%= post.description %>
+	<span class="pull-right quiet"><%= ozdate(post.created_at) %></span>
+	<h5>
+	<span><%=link_to post.title, post_path(post) %></span>
+	<% if params[:controller] != 'users'%>
+	<span class="muted"> by </span> 
+		<%= link_to post.user.username.titleize, user_path(post.user) %>
+	<% end %>
+	</h5>
+<em>
+	"<%= post.description %>"
+</em>
 	<br/>
-	<%=link_to(post.url, "#{fix_url(post.url)}") %> <span class="quiet"> <%= ozdate(post.created_at) %></span>
+	<%=link_to(post.url, "#{fix_url(post.url)}") %>
 	<br/>
 	<% if params[:action] == 'index' %>
 	<%= link_to "#{post.comments.size} Comments", post_path(post)  %>
 	<% end %>
 		<% if logged_in? %>
-			<br>
 			<% if post[:user_id] == current_user[:id] %>
 			<span class="pull-right">	<%= link_to "Edit Post", edit_post_path(post)%>
 			<% end %>
