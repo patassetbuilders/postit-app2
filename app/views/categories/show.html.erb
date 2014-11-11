@@ -1,6 +1,5 @@
-<h4>Category</h4>
-<h5><%= @category.name %></h5>	
-	<span class: 'small'><%= @category.updated_at%></span></p>
+<h4>Category<span class='lead'>  <%= @category.name %></span></h4>	
+	<hr/>
 	<% if logged_in?%>
 		<%= link_to "Edit", edit_category_path(@category), class: "btn btn-success"%>
 	<% end %>
