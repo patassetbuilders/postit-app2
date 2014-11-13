@@ -1,0 +1,7 @@
+<% if @vote.valid? %>
+
+$("#comment_<%= @comment.id %>_up_vote").html("<%= @comment.up_votes %>");
+$("#comment_<%= @comment.id %>_down_vote").html("<%= @comment.down_votes %>");
+<% else %>
+alert('Vote not counted - You can only vote once');
+<% end %>
