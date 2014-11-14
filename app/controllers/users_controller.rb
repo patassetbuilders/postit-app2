@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update]
   
   def show 
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
     @posts = @user.posts
     @comments = @user.comments
   end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
   
   def edit 
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
   end
   
   def update

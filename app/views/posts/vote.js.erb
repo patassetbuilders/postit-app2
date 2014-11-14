@@ -1,7 +1,7 @@
 <% if @vote.valid? %>
 
-$("#post_<%= @post[:id] %>_up_vote").html("<%= @post.up_votes %>");
-$("#post_<%= @post[:id] %>_down_vote").html("<%= @post.down_votes %>");
+$("#post_<%= @post.id %>_up_vote").html("<%= @post.up_votes %>");
+$("#post_<%= @post.id %>_down_vote").html("<%= @post.down_votes %>");
 <% else %>
 alert('Vote not counted - You can only vote once');
 <% end %>

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
     
   def show
-      @post = Post.find(params[:id])
+      @post = Post.find_by(slug: params[:id])
       @comment = Comment.new
   end
   
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   end
   
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by(slug: params[:id])
     if @post.update(post_strong_params)
       redirect_to posts_url
     else
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
   
   def vote
-    @post = Post.find(params[:id])
+    @post = Post.find_by(slug: params[:id])
     @vote = Vote.create(voteable: @post, user: current_user, vote: params[:vote])
     
     respond_to do |format|

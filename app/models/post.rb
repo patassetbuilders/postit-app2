@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   has_many :categories, through:  :post_categories
   has_many :votes, as: :voteable
   
+  before_save :generate_slug
+  
   validates :title, :description, presence: true 
   
   def total_votes
@@ -17,6 +19,14 @@ class Post < ActiveRecord::Base
   
   def down_votes
     self.votes.where(vote: false).size
+  end
+  
+  def generate_slug
+    self.slug = self.title.gsub(' ','-').downcase
+  end
+  
+  def to_param
+    self.slug
   end
   
 end
