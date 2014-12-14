@@ -3,5 +3,6 @@
 $("#post_<%= @post.id %>_up_vote").html("<%= @post.up_votes %>");
 $("#post_<%= @post.id %>_down_vote").html("<%= @post.down_votes %>");
 <% else %>
-alert('Vote not counted - You can only vote once');
+  // alert('Vote not counted You can only vote on "<%= @post.title %>" once');
+	$("#post_vote_error_<%= @post.to_param %>").show();
 <% end %>
