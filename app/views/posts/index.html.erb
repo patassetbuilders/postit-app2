@@ -1,13 +1,12 @@
 <h3>Welcome to the Postit App</h3>
+<h4>List of all posts</h4>
+<%= render "slides" %>
 
-<h4>List of all posts<span>
+<div> <%= paginate @posts %> </div>
 
-
-</h4>
 <br/>
 <% @posts.each do |post| %>
 <%= render 'post', :post => post %>
 
 <% end %>
-</ul>
 

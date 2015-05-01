@@ -4,6 +4,7 @@ PostitTemplate::Application.routes.draw do
   
   resources :users, except: [:destroy, :index, :new]
   get 'register', to: 'users#new'
+  
   resources :posts, except: [:destroy] do
     member do
       post 'vote'
