@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'kaminari'
+gem 'votable_pat', '=0.0.0', path: '/Users/patrickjames/code/votable-gem/'
 
 group :doc do
   gem 'sdoc', require: false

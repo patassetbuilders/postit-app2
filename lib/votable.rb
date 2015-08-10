@@ -1,26 +1,28 @@
 #=============================================================================
 # Meta Programming using Rails Concers see below for traditional ruby methods
 #=============================================================================
-module Votable
-  extend ActiveSupport::Concern
-  
-  included do #methods in this block fires when the module is run
-    has_many :votes, as: :voteable
-  end
-  
-  def total_votes
-    self.votes.size 
-  end
 
-  def up_votes
-    self.votes.where(vote: true).size
-  end 
-
-  def down_votes
-    self.votes.where(vote: false).size
-  end
-  
-end
+# replaced by votable_pat gem woohoo
+#module Votable
+#  extend ActiveSupport::Concern
+#  
+#  included do #methods in this block fires when the module is run
+#    has_many :votes, as: :voteable
+#  end
+#  
+#  def total_votes
+#    self.votes.size 
+#  end
+#
+#  def up_votes
+#    self.votes.where(vote: true).size
+#  end 
+#
+#  def down_votes
+#    self.votes.where(vote: false).size
+#  end
+#  
+#end
  
 
 #=====================================================
