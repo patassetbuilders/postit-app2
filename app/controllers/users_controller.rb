@@ -39,11 +39,11 @@ class UsersController < ApplicationController
  
   private
   def user_strong_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :time_zone)
   end
   
   def require_same_user
-    if current_user[:id] != params[:id].to_i
+    if current_user[:slug] != params[:id]
       flash[:error] = "You cannot edit another user's profile"
       redirect_to root_path
     end
