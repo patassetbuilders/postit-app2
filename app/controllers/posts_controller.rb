@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:show, :index]
+  before_action :require_creator, only: [:edit, :update]
   
   
   def index
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post =Post.find(params[:id])
+    @post =Post.find_by(slug: params[:id])
   end
   
   def update
@@ -64,4 +66,13 @@ class PostsController < ApplicationController
   def post_strong_params
     params.require(:post).permit(:title, :url, :description, category_ids:[])
   end
+  
+  def set_post
+    @post = Post.find_by slug: params[:id]
+  end
+  
+  def require_creator
+    access_denied unless logged_in? and (current_user == @post.user|| current_user.admin?)
+  end
+
 end
