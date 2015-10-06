@@ -29,7 +29,7 @@
 	<%= link_to category.name , category_path(category) %>
   </span>
 	<% end %>
-	<span class="pull-right quiet"><%= ozdate(post.created_at) %></span>
+	<span class="pull-right quiet"><%= display_datetime(post.created_at) %></span>
 	<h5>
 	<span><%=link_to post.title, post_path(post) %></span>
 	<% if params[:controller] != 'users'%>
@@ -47,7 +47,7 @@
 	<%= link_to "#{post.comments.size} Comments", post_path(post)  %>
 	<% end %>
 		<% if logged_in? %>
-			<% if post[:user_id] == current_user[:id] %>
+			<% if post[:user_id] == current_user[:id] || current_user.admin? %>
 			<span class="pull-right">	<%= link_to "Edit Post", edit_post_path(post)%>
 			<% end %>
 		<% end %>

@@ -12,8 +12,12 @@ module ApplicationHelper
     end
   end
   
-  def ozdate(date)
-    date.strftime("%A, %e %b %Y, %H:%M")
+  def display_datetime(dt)
+    if logged_in? && !current_user.time_zone.blank?
+      dt = dt.in_time_zone(current_user.time_zone)
+    end
+    
+    dt.strftime("%A, %e %b %Y, %H:%M, %Z")
   end
   
 end
